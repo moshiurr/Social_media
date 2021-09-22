@@ -8,13 +8,15 @@ export default function Topbar() {
 				<span className="logo">Al'Social</span>
 			</div>
 			<div className="topbarCenter">
-				<Search />
-				<input placeholder="Search for Anything" className="searchInput" />
+				<div className="searchBar">
+					<Search className="searchIcon" />
+					<input placeholder="Search for Anything" className="searchInput" />
+				</div>
 			</div>
 			<div className="topbarRight">
 				<div className="topbarLinks">
-					<div className="topbarLinks">Homepage</div>
-					<div className="topbarLink">Timeline</div>
+					<span className="topbarLink">Homepage</span>
+					<span className="topbarLink">Timeline</span>
 				</div>
 				<div className="topbarIcons">
 					<div className="topbarIconItem">

@@ -1,4 +1,4 @@
-import Home from "./pages/home/home";
+import Home from "./pages/home/Home";
 import { Person } from "@material-ui/icons";
 
 function App() {
