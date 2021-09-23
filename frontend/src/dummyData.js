@@ -42,7 +42,7 @@ export const Users = [
 	},
 	{
 		id: 9,
-		profilePicture: "assets/personss/9.jpeg",
+		profilePicture: "assets/persons/9.jpeg",
 		username: "Gary Duty",
 	},
 	{
