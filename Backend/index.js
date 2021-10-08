@@ -1,6 +1,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const cors = require("cors");
 
 //external routers
 const userRoute = require("./src/routers/users.router");
@@ -17,6 +18,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(cors());
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
@@ -30,5 +32,5 @@ app.get("/", (req, res) => {
 //stating the server
 
 app.listen(port, () => {
-	console.log("Backend running on port 3000");
+	console.log(`Backend running on port ${port}`);
 });
