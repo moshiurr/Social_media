@@ -34,7 +34,6 @@ router.get("/:id", async (req, res) => {
 //update a post
 
 router.put("/:id", async (req, res) => {
-	res.header("Access-Control-Allow-Origin", "*");
 	try {
 		const post = await Post.findById(req.params.id);
 
