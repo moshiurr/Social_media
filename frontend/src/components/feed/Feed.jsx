@@ -2,37 +2,31 @@ import Share from "../share/Share";
 import Post from "../post/Post";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import "./feed.css";
 
-export default function Feed() {
+export default function Feed({ username }) {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
 		const fetchPost = async () => {
-			// const res = await axios.get(
-			// 	"http://localhost:8800/api/posts/timeline/614a278720f4ac7366e70959"
-			// );
-
-			const options = {
-				url: `http://localhost:8800/api/posts/timeline/614a278720f4ac7366e70959`,
-				method: "GET",
-				headers: {
-					"Content-Type": "text/json",
-				},
-				timeout: 30 * 1000,
-			};
 			try {
-				let response = await axios(options);
-				setPosts(response.data);
-				console.log(response);
+				const res = username
+					? await axios.get(
+							`http://localhost:8800/api/posts/profile/${username}`
+					  )
+					: await axios.get(
+							"http://localhost:8800/api/posts/timeline/614a278720f4ac7366e70959"
+					  );
+				//let response = await axios(res);
+				setPosts(res.data);
+				console.log(res);
 			} catch (err) {
 				console.log(err);
 			}
 		};
 
 		fetchPost();
-	}, []);
+	}, [username]);
 
 	return (
 		<div className="feed">

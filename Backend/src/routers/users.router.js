@@ -3,8 +3,9 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 //get a user
-router.get("/:userId", async (req, res) => {
-	const userId = req.params.userId;
+//query let you use lh:80/users?userId=id ---or lj:80/users?username=name
+router.get("/", async (req, res) => {
+	const userId = req.query.userId;
 	const username = req.query.username;
 
 	try {
@@ -43,7 +44,6 @@ router.put("/:id", async (req, res) => {
 	}
 });
 
-//delete user
 //delete user
 router.delete("/:id", async (req, res) => {
 	if (req.body.userId === req.params.id || req.body.isAdmin) {
