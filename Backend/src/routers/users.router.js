@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 //get a user
 router.get("/:userId", async (req, res) => {
-	const userId = req.query.userId;
+	const userId = req.params.userId;
 	const username = req.query.username;
 
 	try {
